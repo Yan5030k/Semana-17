@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Nuevo Autor</title>
-</head>
-<body>
-    <h1>Crear nuevo autor</h1>
+{% extends 'biblioteca/base.html' %}
+
+{% block title %}Nuevo Autor{% endblock %}
+
+{% block content %}
+    <h1>Registrar nuevo autor</h1>
+    <p>Completa el formulario para agregar un autor a la base de datos.</p>
 
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Guardar</button>
+        <button type="submit" class="btn">Guardar autor</button>
+        <a href="{% url 'author_list' %}" class="btn btn-secondary">Cancelar</a>
     </form>
-
-    <a href="{% url 'author_list' %}">← Volver a la lista de autores</a>
-</body>
-</html>
+{% endblock %}

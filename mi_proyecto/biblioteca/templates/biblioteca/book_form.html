@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Nuevo Libro</title>
-</head>
-<body>
-    <h1>Crear nuevo libro</h1>
+{% extends 'biblioteca/base.html' %}
+
+{% block title %}Nuevo Libro{% endblock %}
+
+{% block content %}
+    <h1>Registrar nuevo libro</h1>
+    <p>Completa el formulario para agregar un libro y asociarlo a un autor.</p>
 
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Guardar</button>
+        <button type="submit" class="btn">Guardar libro</button>
+        <a href="{% url 'book_list' %}" class="btn btn-secondary">Cancelar</a>
     </form>
-
-    <a href="{% url 'book_list' %}">← Volver a la lista de libros</a>
-</body>
-</html>
+{% endblock %}
